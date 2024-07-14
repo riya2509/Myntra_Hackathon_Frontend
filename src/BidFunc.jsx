@@ -46,6 +46,52 @@ const BidFunc = () => {
     }
   };
 
+  const cards = [1, 2, 3, 4, 5, 6].map((item, index) => (
+    <div key={index} className="card">
+      <img
+        src="product-image.jpg"
+        alt="Product Image"
+        className="product-image"
+      />
+      <div className="product-details">
+        <h2 className="product-name">Product Name {index + 1}</h2>
+        <p className="seller">Seller: John Doe</p>
+        <p className="original-price">Original Price: ₹{originalPrice}</p>
+        <p className="current-price">Current Price: ₹{currentPrice}</p>
+        <p className="time-remaining">
+          Time Remaining:{" "}
+          <span id="time">
+            {Math.floor(timeRemaining / 60)}:
+            {timeRemaining % 60 < 10 ? "0" : ""}
+            {timeRemaining % 60}
+          </span>{" "}
+          mins
+        </p>
+        <input
+          type="number"
+          value={bidAmount}
+          onChange={handleBidInput}
+          placeholder="Enter your bid"
+        />
+        <button
+          onClick={handleBid}
+          disabled={
+            bidAmount <= currentPrice ||
+            bidCount >= maxBids ||
+            timerEnded ||
+            bidAmount > cashRemaining
+          }
+        >
+          {bidCount >= maxBids
+            ? "Max Bids Reached"
+            : timerEnded
+            ? "Auction Ended"
+            : "Bid"}
+        </button>
+      </div>
+    </div>
+  ));
+
   return (
     <div>
       <header>
@@ -62,49 +108,7 @@ const BidFunc = () => {
           <h1>Myntra Cash Remaining: ₹{cashRemaining}</h1>
         </nav>
       </header>
-      <div className="card">
-        <img
-          src="product-image.jpg"
-          alt="Product Image"
-          className="product-image"
-        />
-        <div className="product-details">
-          <h2 className="product-name">Product Name</h2>
-          <p className="seller">Seller: John Doe</p>
-          <p className="original-price">Original Price: ₹{originalPrice}</p>
-          <p className="current-price">Current Price: ₹{currentPrice}</p>
-          <p className="time-remaining">
-            Time Remaining:{" "}
-            <span id="time">
-              {Math.floor(timeRemaining / 60)}:
-              {timeRemaining % 60 < 10 ? "0" : ""}
-              {timeRemaining % 60}
-            </span>{" "}
-            mins
-          </p>
-          <input
-            type="number"
-            value={bidAmount}
-            onChange={handleBidInput}
-            placeholder="Enter your bid"
-          />
-          <button
-            onClick={handleBid}
-            disabled={
-              bidAmount <= currentPrice ||
-              bidCount >= maxBids ||
-              timerEnded ||
-              bidAmount > cashRemaining
-            }
-          >
-            {bidCount >= maxBids
-              ? "Max Bids Reached"
-              : timerEnded
-              ? "Auction Ended"
-              : "Bid"}
-          </button>
-        </div>
-      </div>
+      <div className="cards-container">{cards}</div>
     </div>
   );
 };

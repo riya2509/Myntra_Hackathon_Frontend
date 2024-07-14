@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -6,17 +8,21 @@
 }
 
 header {
+    position: sticky;
+    top: 0;
     display: flex;
     background-color: #ffffff;
     height: 80px;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #b6b1b1;
+    z-index: 1000;
 }
 
 .myntra_home {
     height: 45px;
 }
+
 .logo_container {
     margin-left: 4%;
 }
@@ -29,12 +35,20 @@ body {
     background-color: #f5f5f5;
 }
 
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
 .card {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 300px;
+    margin: 10px;
     padding: 16px;
     display: flex;
     flex-direction: column;
