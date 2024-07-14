@@ -4,54 +4,54 @@ import "./BidFunc.css";
 const initialProducts = [
   {
     id: 1,
-    name: "Product 1",
+    name: "Adidas Shoes",
     seller: "Seller A",
-    image: "product1.jpg",
+    image: "/images/adidas.jpeg",
     originalPrice: 1000,
     currentPrice: 1000,
     timeRemaining: 300,
   },
   {
     id: 2,
-    name: "Product 2",
+    name: "Bruton Shoes",
     seller: "Seller B",
-    image: "product2.jpg",
+    image: "/images/bruton.jpeg",
     originalPrice: 1500,
     currentPrice: 1500,
     timeRemaining: 300,
   },
   {
     id: 3,
-    name: "Product 3",
+    name: "Nike Shoes",
     seller: "Seller C",
-    image: "product3.jpg",
+    image: "/images/nike.jpeg",
     originalPrice: 2000,
     currentPrice: 2000,
     timeRemaining: 300,
   },
   {
     id: 4,
-    name: "Product 4",
+    name: "Redtape Shoes",
     seller: "Seller D",
-    image: "product4.jpg",
+    image: "/images/redtape.jpeg",
     originalPrice: 2500,
     currentPrice: 2500,
     timeRemaining: 300,
   },
   {
     id: 5,
-    name: "Product 5",
+    name: "Skate Shoes",
     seller: "Seller E",
-    image: "product5.jpg",
+    image: "/images/skate.jpeg",
     originalPrice: 3000,
     currentPrice: 3000,
     timeRemaining: 300,
   },
   {
     id: 6,
-    name: "Product 6",
+    name: "Decathlon shoes",
     seller: "Seller F",
-    image: "product6.jpg",
+    image: "/images/decathlon.jpeg",
     originalPrice: 3500,
     currentPrice: 3500,
     timeRemaining: 300,
@@ -122,7 +122,7 @@ const BidFunc = () => {
           <a href="#">
             <img
               className="myntra_home"
-              src="myntra_logo.webp"
+              src="images/myntra.webp"
               alt="Myntra Home"
             />
           </a>
