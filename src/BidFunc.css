@@ -18,6 +18,10 @@ header {
     border-bottom: 1px solid #b6b1b1;
     z-index: 1000;
 }
+.nav_bar{
+    display: flex;
+    margin-right: 450px;
+}
 
 .myntra_home {
     height: 45px;
