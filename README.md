@@ -53,10 +53,8 @@ The auction feature is highly feasible within the Myntra app with existing techn
 
 - **Frontend:** React.js for building a responsive and dynamic user interface within the Myntra app.
 - **Backend:** Node.js and Express.js for efficient handling of auction logic and user requests.
-- **Database:** MySQL for storing auction data, user streaks, bids, and transaction records.
 - **Additional Tools:**
   - **WebSocket:** For real-time bidding updates within the Myntra app, ensuring users receive immediate feedback on their bids.
-  - **AWS:** For hosting and scaling the Myntra app, providing a reliable and scalable infrastructure.
 
 ## Setup
 
