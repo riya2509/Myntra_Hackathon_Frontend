@@ -65,7 +65,8 @@ const BidFunc = () => {
   const initialCash = 4000;
   const [products, setProducts] = useState([]);
   const [bidAmounts, setBidAmounts] = useState([]);
-  const [bidCounts, setBidCounts] = useState(Array(products.length).fill(0));
+  //   const [bidCounts, setBidCounts] = useState(Array(products.length).fill(0));
+  const [bidCounts, setBidCounts] = useState([]);
   const [cashRemaining, setCashRemaining] = useState(initialCash);
   const [currentBidValue, setcurrentBidValue] = useState({});
 
@@ -92,20 +93,35 @@ const BidFunc = () => {
     };
   }, []);
 
-  //   console.log(currentBidValue);
-
   useEffect(() => {
     axios
       .get("/api")
       .then((res) => {
-        setProducts(
-          (res.data?.data ?? []).map((v) => ({ ...v, timeRemaining: 300 }))
-        );
+        const productData = (res.data?.data ?? []).map((v) => ({
+          ...v,
+          timeRemaining: 300,
+        }));
+        setProducts(productData);
+        setBidCounts(Array(productData.length).fill(0)); // Initialize bidCounts properly
+        setBidAmounts(Array(productData.length).fill(""));
       })
       .catch((e) => {
         console.info(e);
       });
   }, []);
+
+  //   useEffect(() => {
+  //     axios
+  //       .get("/api")
+  //       .then((res) => {
+  //         setProducts(
+  //           (res.data?.data ?? []).map((v) => ({ ...v, timeRemaining: 300 }))
+  //         );
+  //       })
+  //       .catch((e) => {
+  //         console.info(e);
+  //       });
+  //   }, []);
 
   useEffect(() => {
     const timers = products.map((product, index) =>
@@ -147,9 +163,11 @@ const BidFunc = () => {
 
   const handleBid = (index, id) => {
     const bidValue = parseInt(bidAmounts[index], 10);
-    const product = products[index];
+    // const product = products[index];
     addBidding(index, id);
     const j = { ...currentBidValue };
+    // const currentProductBidValue =
+    //   currentBidValue[id]?.cost ?? products[index].cost;
 
     console.log(bidValue, j[id].cost, cashRemaining, bidCounts[index]);
     if (
@@ -157,7 +175,7 @@ const BidFunc = () => {
       (bidCounts[index] ?? 0) < maxBids &&
       bidValue <= cashRemaining + j[id].cost
     ) {
-      const usedCash = bidValue - currentBidValue[id].cost;
+      const usedCash = bidValue - j[id].cost;
       //   if (bidAmounts[index] > j[id].cost) {
       j[id].cost = bidAmounts[index];
       console.log(j[id], bidAmounts[index]);
@@ -175,6 +193,7 @@ const BidFunc = () => {
       setBidAmounts((prevBidAmounts) =>
         prevBidAmounts.map((amount, i) => (i === index ? "" : amount))
       );
+      addBidding(index, id);
     }
   };
 
@@ -239,6 +258,7 @@ const BidFunc = () => {
                     cashRemaining + product.currentPrice
                 }
               >
+                {console.log(bidAmounts[index], bidCounts[index], maxBids)}
                 {bidCounts[index] >= maxBids
                   ? "Max Bids Reached"
                   : product.timeRemaining === 0
