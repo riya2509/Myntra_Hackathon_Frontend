@@ -5,6 +5,11 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  /* Replace with Myntra's logo image */
+  background-image: url('./assets/myntra-2.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {

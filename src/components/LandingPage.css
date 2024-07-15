@@ -1,0 +1,44 @@
+/* LandingPage.css */
+.landing-page {
+    
+    position: relative;
+    text-align: center;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.landing-image {
+    width: 100%;
+    height: auto; 
+    max-height: 80%; 
+    object-fit: contain;
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 0;
+    z-index: -1;
+}
+
+.bid-link {
+    text-decoration: none;
+    position: absolute;
+    top: 65%; 
+    left: 55.5%;
+    transform: translate(-50%, -50%);
+}
+
+.bid-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-image: radial-gradient(circle, #F41CB2, #F25511);
+}
+
+.bid-button:hover {
+    background-color: #ff1c52;
+}
