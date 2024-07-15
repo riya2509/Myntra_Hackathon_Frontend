@@ -169,7 +169,7 @@ const BidFunc = () => {
     // const currentProductBidValue =
     //   currentBidValue[id]?.cost ?? products[index].cost;
 
-    console.log(bidValue, j[id].cost, cashRemaining, bidCounts[index]);
+    // console.log(bidValue, j[id].cost, cashRemaining, bidCounts[index]);
     if (
       bidValue > j[id].cost &&
       (bidCounts[index] ?? 0) < maxBids &&
@@ -178,8 +178,8 @@ const BidFunc = () => {
       const usedCash = bidValue - j[id].cost;
       //   if (bidAmounts[index] > j[id].cost) {
       j[id].cost = bidAmounts[index];
-      console.log(j[id], bidAmounts[index]);
       setcurrentBidValue(j);
+      //   console.log(currentBidValue);
       //   }
       //   setProducts((prevProducts) =>
       //     prevProducts.map((p, i) =>
@@ -258,7 +258,6 @@ const BidFunc = () => {
                     cashRemaining + product.currentPrice
                 }
               >
-                {console.log(bidAmounts[index], bidCounts[index], maxBids)}
                 {bidCounts[index] >= maxBids
                   ? "Max Bids Reached"
                   : product.timeRemaining === 0
